@@ -7,13 +7,7 @@
   margin-top: 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-@media screen and (min-width: 768px) {
-  .profile__subtitle {
-    align-self: flex-start;
-    ma
-  }
+  align-self: flex-start;
 }
 
 @media screen and (max-width: 767px) {
@@ -23,6 +17,5 @@
     font-size: 14px;
     max-width: 282px;
     text-align: right;
-    align-self: flex-start;
   }
 }

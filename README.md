@@ -20,4 +20,4 @@
 6. Для создания Фавикона испольовался **https://favicon.io/favicon-generator**
 
 ### Ссылка на работу:
-
+**https://elyankeer.github.io/mesto/**
