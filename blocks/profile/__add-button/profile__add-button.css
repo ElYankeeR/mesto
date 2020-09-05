@@ -3,7 +3,7 @@
   height: 50px;
   margin-left: auto;
   background-color: #000;
-  background-image: url(../../../images/plus.png);
+  background-image: url(../../../images/plus.svg);
   background-position: center;
   background-repeat: no-repeat;
   justify-self: end;
@@ -25,4 +25,3 @@
     margin: 0 auto;
   }
 }
-

@@ -7,17 +7,24 @@ let formElement = document.querySelector('.popup__form');
 let popupAreaName = popup.querySelector('.popup__area_name');
 let popupAreaProfession = popup.querySelector('.popup__area_profession');
 
-const popupToggle = function() {
-  popup.classList.toggle('popup_opened');
+function popupIsOpened() {
+  popup.classList.add('popup_opened');
+  popupAreaName.value = profileTitle.textContent;
+  popupAreaProfession.value = profileSubtitle.textContent;
+}
+
+function popupIsClosed() {
+  popup.classList.remove('popup_opened')
 }
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
   profileTitle.textContent = popupAreaName.value;
   profileSubtitle.textContent = popupAreaProfession.value;
-  popupToggle();
+  popupIsClosed();
 }
 
-profileEditButton.addEventListener('click', popupToggle);
-popupCloseButton.addEventListener('click', popupToggle);
+profileEditButton.addEventListener('click', popupIsOpened);
+popupCloseButton.addEventListener('click', popupIsClosed);
 formElement.addEventListener('submit', formSubmitHandler);
+
