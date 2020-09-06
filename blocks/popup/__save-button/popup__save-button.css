@@ -21,7 +21,7 @@
 
 @media screen and (max-width: 600px) {
   .popup__save-button {
-    width: 250px;
+    width: 248px;
     margin: 10px auto auto;
   }
 }
