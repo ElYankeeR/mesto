@@ -1,4 +1,4 @@
-.elements__info {
+.card__information {
   display: flex;
   margin: 0 auto;
   padding: 0;
@@ -9,3 +9,4 @@
   padding: 25px 15px 31px 21px;
   max-width: 250px;
 }
+
