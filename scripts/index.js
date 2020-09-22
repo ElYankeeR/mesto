@@ -13,39 +13,12 @@ const closeEdit = document.querySelector('#editClose');
 const popupAdd = document.querySelector('#popup-add');
 const closeAdd = document.querySelector('#addClose');
 const newElement = document.querySelector('#newElem');
-const elements = document.querySelector('.elements');
+const cards = document.querySelector('.cards');
 const cardListBox = document.querySelector('#cardElement').content;
 const popupPic = document.querySelector('#picture');
 const popupPicFull = document.querySelector('.popup__picture_fullscreen');
 const popupPicInfo = document.querySelector('.popup__picture_info');
 const closePic = document.querySelector('#pictureClose');
-
-const initialCards = [
-  {
-  name: 'New York',
-  link: 'https://images.unsplash.com/photo-1543716091-a840c05249ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'
-},
-{
-  name: 'Washington, D.C.',
-  link: 'https://images.unsplash.com/photo-1581097543550-b3cbe2e6ea6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-},
-{
-  name: 'San Francisco',
-  link: 'https://images.unsplash.com/photo-1538230637133-83ec5249faa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-},
-{
-  name: 'Chicago',
-  link: 'https://images.unsplash.com/photo-1549533948-77ab8a0d9878?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80'
-},
-{
-  name: 'Los Angeles',
-  link: 'https://images.unsplash.com/photo-1506184106046-1e6e90c0222d?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80'
-},
-{
-  name: 'Alaska',
-  link: 'https://images.unsplash.com/photo-1535025287458-e3badca98021?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80'
-}
-];
 
 function popupOpenClose(popup) {
   popup.classList.toggle('popup_opened')
@@ -57,6 +30,15 @@ function textAdd() {
   popupName.value = `${textTitle}`;
   popupDescription.value = `${textSubtitle}`;
 }
+
+function editPopup() {
+  popupOpenClose(popupEdit);
+  textAdd();
+}
+
+const addCards = function (item) {
+  cards.append(getNewCard(item.name, item.link));
+};
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
@@ -73,12 +55,12 @@ const openPicture = (event) => {
   popupOpenClose(popupPic);
 };
 
-const removeCard = function (cardCopy) {
-  cardCopy.remove();
-};
-
 const like = (evt) => {
   evt.target.classList.toggle('card__like-button_active');
+};
+
+const removeCard = function (cardCopy) {
+  cardCopy.remove();
 };
 
 function getNewCard(name, picture) {
@@ -92,28 +74,18 @@ function getNewCard(name, picture) {
   cardTitle.textContent = name;
   cardLike.addEventListener('click', like);
   cardPicture.addEventListener('click', openPicture);
-  cardRemove.addEventListener('click', () => removeCard(cardCopy), {
-    once: true
-  });
+  cardRemove.addEventListener('click', () => removeCard(cardCopy), {once: true});
   return cardCopy;
 }
-
-const addCards = function (item) {
-  elements.append(getNewCard(item.name, item.link));
-};
 
 function newAddForm(evt) {
   evt.preventDefault();
   popupOpenClose(popupAdd);
-  elements.prepend(getNewCard(popupCardPlace.value, popupCardLink.value));
+  cards.prepend(getNewCard(popupCardPlace.value, popupCardLink.value));
   popupCardPlace.value = '';
   popupCardLink.value = '';
 };
 
-function editPopup() {
-  popupOpenClose(popupEdit);
-  textAdd();
-}
 
 profileEditButton.addEventListener('click', editPopup);
 profileAddButton.addEventListener('click', () => popupOpenClose(popupAdd));
